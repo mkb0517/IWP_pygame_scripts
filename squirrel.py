@@ -7,8 +7,8 @@ import random, sys, time, math, pygame
 from pygame.locals import *
 
 FPS = 30 #frams per second to update the screen
-WINWIDTH = 1280 # width of the program's windows, in pixels
-WINHEIGHT = 720 # height in pixels
+WINWIDTH = 640 # width of the program's windows, in pixels
+WINHEIGHT = 480 # height in pixels
 HALF_WINWIDTH = int(WINWIDTH/2)
 HALF_WINHEIGHT = int(WINHEIGHT/2)
 
@@ -65,17 +65,17 @@ def main():
 
     pygame.init()
     FPSCLOCK = pygame.time.Clock()
-    pygame.display.set_icon(pygame.image.load('gameicon.png'))
+    pygame.display.set_icon(pygame.image.load('sq/gameicon.png'))
     DISPLAYSURF = pygame.display.set_mode((WINWIDTH, WINHEIGHT))
     pygame.display.set_caption('Squirrel Eat Squirrel')
     BASICFONT = pygame.font.Font('freesansbold.ttf', 32)
 
     # load the image files
-    L_SQUIR_IMG = pygame.image.load('squirrel.png')
+    L_SQUIR_IMG = pygame.image.load('sq/squirrel.png')
     R_SQUIR_IMG = pygame.transform.flip(L_SQUIR_IMG, True, False)
     GRASSIMAGES = []
     for i in range(1,5):
-        GRASSIMAGES.append(pygame.image.load('grass%s.png' % i))
+        GRASSIMAGES.append(pygame.image.load('sq/grass%s.png' % i))
 
     while True:
         runGame()
@@ -299,7 +299,7 @@ def runGame():
 
         else:
             # game is over, show "game over" text
-            DISPLAYSURF.blit(gameOverSurf, gameOverRext)
+            DISPLAYSURF.blit(gameOverSurf, gameOverRect)
             if time.time() - gameOverStartTime > GAMEOVERTIME:
                 return # end the current game
 
